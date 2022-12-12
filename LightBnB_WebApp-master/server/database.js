@@ -70,18 +70,6 @@ const addUser = (user) => {
 };
 exports.addUser = addUser;
 
-
-
-
-
-// const addUser =  function(user) {
-//   const userId = Object.keys(users).length + 1;
-//   user.id = userId;
-//   users[userId] = user;
-//   return Promise.resolve(user);
-// }
-
-
 /// Reservations
 
 /**
@@ -91,7 +79,7 @@ exports.addUser = addUser;
  */
 const getAllReservations = function(guest_id, limit = 10) {
   return getAllProperties(null, 2);
-}
+};
 exports.getAllReservations = getAllReservations;
 
 /// Properties
@@ -103,7 +91,7 @@ exports.getAllReservations = getAllReservations;
  */
 
 const getAllProperties = (options, limit = 10) => {
-    return pool
+  return pool
     .query(`SELECT * FROM properties LIMIT $1`, [limit])
     .then((result) => {
       return result.rows;
@@ -115,19 +103,6 @@ const getAllProperties = (options, limit = 10) => {
 
 exports.getAllProperties = getAllProperties;
 
-
-
-// const getAllProperties = function(options, limit = 10) {
-//   const limitedProperties = {};
-//   for (let i = 1; i <= limit; i++) {
-//     limitedProperties[i] = properties[i];
-//   }
-//   console.log(limitedProperties);
-//   return Promise.resolve(limitedProperties);
-// }
-// exports.getAllProperties = getAllProperties;
-
-
 /**
  * Add a property to the database
  * @param {{}} property An object containing all of the property details.
@@ -138,5 +113,5 @@ const addProperty = function(property) {
   property.id = propertyId;
   properties[propertyId] = property;
   return Promise.resolve(property);
-}
+};
 exports.addProperty = addProperty;
