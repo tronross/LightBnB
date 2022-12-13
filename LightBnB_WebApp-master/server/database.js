@@ -1,13 +1,16 @@
 const properties = require('./json/properties.json');
 const users = require('./json/users.json');
+require('dotenv').config();
+
+console.log(process.env.DB_DATABASE);
 
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'labber',
-  password: 'labber',
-  host: 'localhost',
-  database: 'lightbnb'
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE
 });
 
 
