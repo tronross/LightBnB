@@ -21,7 +21,8 @@ const pool = new Pool({
  */
 const getUserWithEmail = (email) => {
   return pool
-    .query(`SELECT * FROM users WHERE email = $1`, [email])
+    .query(`SELECT * FROM users
+            WHERE email = $1`, [email])
     .then((result) => {
       return result.rows[0];
     })
@@ -39,7 +40,8 @@ exports.getUserWithEmail = getUserWithEmail;
  */
 const getUserWithId = (id) => {
   return pool
-    .query(`SELECT * FROM users WHERE id = $1`, [id])
+    .query(`SELECT * FROM users
+            WHERE id = $1`, [id])
     .then((result) => {
       return result.rows[0];
     })
@@ -59,8 +61,8 @@ exports.getUserWithId = getUserWithId;
 const addUser = (user) => {
   return pool
     .query(`INSERT INTO users (name, email, password)
-    VALUES($1, $2, $3)
-    RETURNING *;`, [user.name, user.email, user.password])
+            VALUES($1, $2, $3)
+            RETURNING *;`, [user.name, user.email, user.password])
     .then((result) => {
       return result.rows;
     })
@@ -81,14 +83,14 @@ exports.addUser = addUser;
 const getAllReservations = (guest_id, limit = 10) => {
   return pool
     .query(`SELECT reservations.*, properties.title, properties.cost_per_night, 
-    avg(property_reviews.rating) as average_rating
-    FROM reservations
-    JOIN properties ON reservations.property_id = properties.id
-    JOIN property_reviews ON properties.id = property_reviews.property_id
-    WHERE reservations.guest_id = $1
-    GROUP BY reservations.id, properties.id
-    ORDER BY reservations.start_date
-    LIMIT $2`, [guest_id, limit])
+            avg(property_reviews.rating) as average_rating
+            FROM reservations
+            JOIN properties ON reservations.property_id = properties.id
+            JOIN property_reviews ON properties.id = property_reviews.property_id
+            WHERE reservations.guest_id = $1
+            GROUP BY reservations.id, properties.id
+            ORDER BY reservations.start_date
+            LIMIT $2`, [guest_id, limit])
     .then((result) => {
       return result.rows;
     })
@@ -110,9 +112,9 @@ const getAllProperties = (options, limit = 10) => {
   const queryParams = [];
 
   let queryString = `SELECT properties.*, avg(property_reviews.rating) as average_rating
-    FROM properties 
-    JOIN property_reviews ON properties.id = property_id
-  `;
+                     FROM properties 
+                     JOIN property_reviews ON properties.id = property_id
+                     `;
   
   // city
   if (options.city) {
@@ -155,9 +157,9 @@ const getAllProperties = (options, limit = 10) => {
   // limit
   queryParams.push(limit);
   queryString += `
-  ORDER BY cost_per_night
-  LIMIT $${queryParams.length};
-  `;
+                  ORDER BY cost_per_night
+                  LIMIT $${queryParams.length};
+                  `;
  
   // submit query
   return pool.query(queryString, queryParams).then((res) => res.rows)
@@ -175,10 +177,9 @@ exports.getAllProperties = getAllProperties;
 const addProperty = (property) => {
   return pool
     .query(`INSERT INTO properties (owner_id, title, description, thumbnail_photo_url, cover_photo_url, cost_per_night, street, city, province, post_code, country, parking_spaces, number_of_bathrooms, number_of_bedrooms)
-    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
-    RETURNING *;`, [property.owner_id, property.title, property.description, property.thumbnail_photo_url, property.cover_photo_url, property.cost_per_night, property.street, property.city, property.province, property.post_code, property.country, property.parking_spaces, property.number_of_bathrooms, property.number_of_bedrooms])
+            VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+            RETURNING *;`, [property.owner_id, property.title, property.description, property.thumbnail_photo_url, property.cover_photo_url, property.cost_per_night, property.street, property.city, property.province, property.post_code, property.country, property.parking_spaces, property.number_of_bathrooms, property.number_of_bedrooms])
     .then((result) => {
-      console.log(result.rows);
       return result.rows;
     })
     .catch((err) => {
