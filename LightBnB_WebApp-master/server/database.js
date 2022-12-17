@@ -1,3 +1,7 @@
+/////////////////////////////////////////////////
+// DATABASE QUERY Pool and require dotenv
+/////////////////////////////////////////////////
+
 require('dotenv').config();
 
 const { Pool } = require('pg');
@@ -8,6 +12,10 @@ const pool = new Pool({
   host: process.env.DB_HOST,
   database: process.env.DB_DATABASE
 });
+
+/////////////////////////////////////////////////
+// DATABASE QUERY FUNCTIONS
+/////////////////////////////////////////////////
 
 
 /// Users
@@ -108,7 +116,7 @@ exports.getAllReservations = getAllReservations;
 
 const getAllProperties = (options, limit = 10) => {
   const queryParams = [];
-
+  // necessary for all getAllProperties queries
   let queryString = `SELECT properties.*, avg(property_reviews.rating) as average_rating
                      FROM properties 
                      JOIN property_reviews ON properties.id = property_id
@@ -129,9 +137,10 @@ const getAllProperties = (options, limit = 10) => {
     queryString += `WHERE owner_id = $${queryParams.length} `;
   }
   
+  // necessary for all getAllProperties queries
   queryString += `GROUP BY properties.id `;
 
-  // pricing
+  // pricing options
   if (options.minimum_price_per_night && options.maximum_price_per_night) {
     queryParams.push(Number(options.minimum_price_per_night), Number(options.maximum_price_per_night));
     queryString += `HAVING cost_per_night >= $${queryParams.length - 1} AND cost_per_night <= $${queryParams.length} `;
@@ -152,7 +161,7 @@ const getAllProperties = (options, limit = 10) => {
     queryString += `HAVING avg(property_reviews.rating) >= $${queryParams.length} `;
   }
 
-  // limit
+  // limit and ORDER BY
   queryParams.push(limit);
   queryString += `
                   ORDER BY cost_per_night
