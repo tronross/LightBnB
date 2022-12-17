@@ -1,5 +1,3 @@
-const properties = require('./json/properties.json');
-const users = require('./json/users.json');
 require('dotenv').config();
 
 const { Pool } = require('pg');
@@ -82,7 +80,7 @@ exports.addUser = addUser;
 
 const getAllReservations = (guest_id, limit = 10) => {
   return pool
-    .query(`SELECT reservations.*, properties.title, properties.cost_per_night, 
+    .query(`SELECT reservations.*, properties.*,
             avg(property_reviews.rating) as average_rating
             FROM reservations
             JOIN properties ON reservations.property_id = properties.id
