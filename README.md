@@ -76,6 +76,6 @@ npm run local
 ```
 You can now launch the app by going to [http://localhost:3000/](http://localhost:3000/).
 
-If you wish to sign in as a user, you can utilize any of the user e-mails from the database, an example is 'ossie@teddybearz.net'. Passwords for all users are password
+If you wish to sign in as a user, you can utilize any of the user e-mails from the database, an example is 'ossie@teddybearz.net'. Passwords for all users are 'password'.
 
 An ERD for the database may be found in the /planning directory.
