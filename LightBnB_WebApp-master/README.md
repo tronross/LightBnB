@@ -21,6 +21,8 @@
 │   └── styles
 ├── sass
 └── server
+  ├── db
+      └── index.js
   ├── apiRoutes.js
   ├── database.js
   ├── server.js
@@ -36,6 +38,8 @@
     * `components` contains all of the individual html components. They are all created using jQuery.
 * `sass` contains all of the sass files. 
 * `server` contains all of the server side and database code.
+  * `db` contains the central pool querying module.
+    * `index.js`, which serves as the portal through which the `js`(`pg`) database queries are made.
   * `server.js` is the entry point to the application. This connects the routes to the database.
   * `apiRoutes.js` and `userRoutes.js` are responsible for any HTTP requests to `/users/something` or `/api/something`. 
   * `database.js` is responsible for all queries to the database.
