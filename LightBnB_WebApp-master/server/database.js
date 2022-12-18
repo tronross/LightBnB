@@ -36,7 +36,7 @@ const getUserWithEmail = (email) => {
       console.log(err.message);
     });
 };
-getUserWithEmail('car123@hotmail.com');
+
 exports.getUserWithEmail = getUserWithEmail;
 
 /**
