@@ -42,7 +42,7 @@ Then, connect to the database, create the tables from the included schema, and s
 At this point, you can run psql queries from the command line or by importing sql query files.
 ```
 SELECT * FROM properties
-WHERE city = Edmonton';
+WHERE city = 'Edmonton';
 ```
 To explore the database via the app, quit psql, change to the LightBnB_WebApp-master directory and install the dependencies:
 ```
