@@ -7,6 +7,8 @@ Light BnB is a lightweight clone of AirBnB, used as a test bed for psql database
 
 Lighthouse BnB_WebApp simulates a development mockup of an AirBnB style booking app, and the base code for that aspect of the project can be found on [Lighthouse Labs GitHub](https://github.com/lighthouse-labs/LightBnB_WebApp). The clone originally pulled from an in-memory database; I rewrote the appropriate parts of the back end to pull data from an sql database, making queries via browser interaction using javascript and PostgreSQL.
 
+<img src ="public_gif\LightBnB.gif" alt="LightBnB screenshot gif">
+
 ### Setup
 
 Assuming you have [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/), [PostgreSQL](https://www.postgresql.org/), and [git](https://git-scm.com/) installed on your computer, you can proceed by:
