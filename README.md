@@ -81,3 +81,54 @@ You can now launch the app by going to [http://localhost:3000/](http://localhost
 If you wish to sign in as a user, you can utilize any of the user e-mails from the database, an example is `ossie@teddybearz.net`. Passwords for all users are `password`.
 
 An ERD for the database may be found in the `/planning` directory, and the `Light_BnB_WebApp-master` Project Structure may be found as a README in the root of the `Light_BnB_WebApp-master` directory.
+
+## LightBnB_WebApp-master
+
+### Sub-Project Structure
+
+```
+├── LightBnB_WebApp-master
+    ├── public
+    │   ├── index.html
+    │   ├── javascript
+    │   │   ├── components 
+    │   │   │   ├── header.js
+    │   │   │   ├── login_form.js
+    │   │   │   ├── new_property_form.js
+    │   │   │   ├── property_listing.js
+    │   │   │   ├── property_listings.js
+    │   │   │   ├── search_form.js
+    │   │   │   └── signup_form.js
+    │   │   ├── index.js
+    │   │   ├── libraries
+    │   │   ├── network.js
+    │   │   └── views_manager.js
+    │   └── styles
+    ├── sass
+    └── server
+      ├── db
+      │    └── index.js
+      ├── queries
+      │    └── apiQueries.js
+      │   └── userQueries.js
+      ├── apiRoutes.js
+      ├── server.js
+      └── userRoutes.js
+```
+
+* `public` contains all of the HTML, CSS, and client side JavaScript. 
+  * `index.html` is the entry point to the application. It's the only html page because this is a single page application.
+  * `javascript` contains all of the client side javascript files.
+    * `index.js` starts up the application by rendering the listings.
+    * `network.js` manages all ajax requests to the server.
+    * `views_manager.js` manages which components appear on screen.
+    * `components` contains all of the individual html components. They are all created using jQuery.
+* `sass` contains all of the sass files. 
+* `server` contains all of the server side and database code.
+  * `db` contains the central database pool querying module.
+    * `index.js`, which serves as the portal through which the `js`(`pg`) database queries are made.
+   * `queries` contains the central database `js`(`pg`) query modules.
+     * `apiQueries.js` contains `js`(`pg`) database queries used by `apiRoutes`.
+     * `userQueries.js` contains `js`(`pg`) database queries used by `userRoutes`.
+  * `server.js` is the entry point to the application. This connects the routes to the database.
+  * `apiRoutes.js` and `userRoutes.js` are responsible for any HTTP requests to `/users/something` or `/api/something`. 
