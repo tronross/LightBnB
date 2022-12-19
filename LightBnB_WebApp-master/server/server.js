@@ -1,4 +1,5 @@
-const database = require('./database');
+const apiDB = require('./queries/apiQueries'); // modularize database queries
+const userDB = require('./queries/userQueries'); // modularize database queries
 const apiRoutes = require('./apiRoutes');
 const userRoutes = require('./userRoutes');
 
@@ -20,12 +21,12 @@ app.use(bodyParser.json());
 
 // /api/endpoints
 const apiRouter = express.Router();
-apiRoutes(apiRouter, database);
+apiRoutes(apiRouter, apiDB);
 app.use('/api', apiRouter);
 
 // /user/endpoints
 const userRouter = express.Router();
-userRoutes(userRouter, database);
+userRoutes(userRouter, userDB);
 app.use('/users', userRouter);
 
 app.use(express.static(path.join(__dirname, '../public')));
