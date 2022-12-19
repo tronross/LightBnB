@@ -80,4 +80,4 @@ You can now launch the app by going to [http://localhost:3000/](http://localhost
 
 If you wish to sign in as a user, you can utilize any of the user e-mails from the database, an example is `ossie@teddybearz.net`. Passwords for all users are `password`.
 
-An ERD for the database may be found in the `/planning` directory.
+An ERD for the database may be found in the `/planning` directory, and the `Light_BnB_WebApp-master` Project Structure may be found as a README in the root of the `Light_BnB_WebApp-master` directory.
