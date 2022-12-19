@@ -23,8 +23,10 @@
 └── server
   ├── db
       └── index.js
+  ├── queries
+      └── apiQueries.js
+      └── userQueries.js
   ├── apiRoutes.js
-  ├── database.js
   ├── server.js
   └── userRoutes.js
 ```
@@ -40,6 +42,8 @@
 * `server` contains all of the server side and database code.
   * `db` contains the central database pool querying module.
     * `index.js`, which serves as the portal through which the `js`(`pg`) database queries are made.
+   * `queries` contains the central database `js`(`pg`) query modules.
+     * `apiQueries.js` contains `js`(`pg`) database queries used by `apiRoutes`.
+     * `userQueries.js` contains `js`(`pg`) database queries used by `userRoutes`.
   * `server.js` is the entry point to the application. This connects the routes to the database.
   * `apiRoutes.js` and `userRoutes.js` are responsible for any HTTP requests to `/users/something` or `/api/something`. 
-  * `database.js` is responsible for all queries to the database.
