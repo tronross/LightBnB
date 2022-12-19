@@ -109,7 +109,7 @@ An ERD for the database may be found in the `/planning` directory, and the `Ligh
       ├── db
       │    └── index.js
       ├── queries
-      │    └── apiQueries.js
+      │    ├── apiQueries.js
       │    └── userQueries.js
       ├── apiRoutes.js
       ├── server.js
