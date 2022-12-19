@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-Light BnB is a lightweight clone of AirBnB, used as a test bed for psql database querying (and building) as part of [Lighthouse Labs Web Development Flex Program](https://www.lighthouselabs.ca/en/web-development-flex-program).
+Light BnB is a lightweight clone of AirBnB, used for learning psql database querying (and building) as part of [Lighthouse Labs Web Development Flex Program](https://www.lighthouselabs.ca/en/web-development-flex-program).
 
 
 `Lighthouse_BnB_WebApp` simulates a development mockup of an AirBnB style booking app, and the base code for that aspect of the project can be found on [Lighthouse Labs GitHub](https://github.com/lighthouse-labs/LightBnB_WebApp). The clone originally pulled from an in-memory database; I rewrote the appropriate parts of the back end to pull data from an sql database, making queries via browser interaction using javascript and PostgreSQL.
