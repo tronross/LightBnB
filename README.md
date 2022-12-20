@@ -24,13 +24,13 @@ Open `psql` via the CLI:
 ```
 psql
 ```
-You may be prompted to choose a password for your user, if you need to choose a password, the command is:
+You may be prompted to choose a `password` for your user, if you need to choose a `password`, the command is:
 ```
 \password
 ```
 Enter the password, press return and then confirm it.
 
-You will need to create the database. While running psql:
+You will need to create the database. While running `psql`:
 ```
 CREATE DATABASE lightbnb;
 ```
@@ -46,7 +46,7 @@ At this point, you can run psql queries from the command line or by importing sq
 SELECT * FROM properties
 WHERE city = 'Edmonton';
 ```
-To explore the database via the app, quit psql, change to the `LightBnB_WebApp-master` directory and install the dependencies:
+To explore the database via the app, quit `psql`, change to the `LightBnB_WebApp-master` directory and install the dependencies:
 ```
 \q
 cd LightBnB_WebApp-master
@@ -64,7 +64,7 @@ nodemon:         ^1.19.1
 pg:              ^8.8.0
 ```
 
-Please insure that you have npx installed (it has been bundled with npm since version 5.20). If you do not have npx installed, you may install it via the command
+Please insure that you have `npx` installed (it has been bundled with `npm` since version 5.20). If you do not have `npx` installed, you may install it via the command
 
 ```
 npm install -g npx
@@ -80,7 +80,7 @@ You can now launch the app by going to [http://localhost:3000/](http://localhost
 
 If you wish to sign in as a user, you can utilize any of the user e-mails from the database, an example is `ossie@teddybearz.net`. Passwords for all users are `password`.
 
-An ERD for the database may be found in the `/planning` directory, and the `Light_BnB_WebApp-master` Project Structure may be found as a README in the root of the `Light_BnB_WebApp-master` directory.
+An ERD for the database may be found in the `/planning` directory.
 
 ## LightBnB_WebApp-master
 
