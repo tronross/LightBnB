@@ -38,8 +38,8 @@ Then, connect to the database, create the tables from the included schema, and s
 ```
 \c lightbnb;
 \i migrations/01_schema.sql;
-\i seeds/01_seeds.sql
-\i seeds/02_seeds.sql
+\i seeds/01_seeds.sql;
+\i seeds/02_seeds.sql;
 ```
 At this point, you can run `psql` queries from the command line or by importing sql query files.
 ```
