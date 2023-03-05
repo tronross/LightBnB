@@ -2,10 +2,10 @@
 
 ## Project Summary
 
-Light BnB is a lightweight clone of AirBnB, used for learning psql database querying (and building) as part of [Lighthouse Labs Web Development Flex Program](https://www.lighthouselabs.ca/en/web-development-flex-program).
+Light BnB is a lightweight clone of AirBnB, used for learning [PostgreSQL](https://www.postgresql.org/) database querying (and building) as part of [Lighthouse Labs Web Development Flex Program](https://www.lighthouselabs.ca/en/web-development-flex-program).
 
 
-`Lighthouse_BnB_WebApp` simulates a development mockup of an AirBnB style booking app, and the base code for that aspect of the project can be found on [Lighthouse Labs GitHub](https://github.com/lighthouse-labs/LightBnB_WebApp). The clone originally pulled from an in-memory database; I rewrote the appropriate parts of the back end to pull data from an sql database, making queries via browser interaction using javascript and PostgreSQL.
+`Lighthouse_BnB_WebApp` simulates a development mockup of an AirBnB style booking app, and the base code for that aspect of the project can be found on [Lighthouse Labs GitHub](https://github.com/lighthouse-labs/LightBnB_WebApp). The clone originally pulled from an in-memory database; I rewrote the appropriate parts of the back end to pull data from an sql database, making queries via browser interaction using [JavaScript](https://www.javascript.com/) and [PostgreSQL](https://www.postgresql.org/).
 
 <img src ="public_gif\LightBnB.gif" alt="LightBnB screenshot gif">
 
@@ -15,8 +15,7 @@ Assuming you have [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com
 
 Clone the repository and enter the `LightBnB` directory.
 ```
-git clone git@github.com:tronross/LightBnB.git LightBnB
-cd LightBnB
+git clone git@github.com:tronross/LightBnB.git LightBnB && cd LightBnB
 ```
 
 Open `psql` via the CLI:
