@@ -50,7 +50,7 @@ const getAllProperties = (options, limit = 10) => {
                      FROM properties 
                      JOIN property_reviews ON properties.id = property_id
                      `;
-  
+
   // city
   if (options.city) {
     queryParams.push(`%${options.city}%`);
@@ -65,7 +65,7 @@ const getAllProperties = (options, limit = 10) => {
     queryParams.push(Number(options.owner_id));
     queryString += `WHERE owner_id = $${queryParams.length} `;
   }
-  
+
   // necessary for all getAllProperties queries
   queryString += `GROUP BY properties.id `;
 
@@ -96,7 +96,7 @@ const getAllProperties = (options, limit = 10) => {
                   ORDER BY cost_per_night
                   LIMIT $${queryParams.length};
                   `;
- 
+
   // submit query
   return db.query(queryString, queryParams).then((res) => res.rows)
     .catch((err) => {
